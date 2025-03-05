@@ -138,8 +138,8 @@ public class AppDbContext:DbContext,IAppDbContext
                 RentId = rentalId,
                 CarId = carId1,
                 CustomerId = customerId1,
-                RentStartDateTime = DateTime.Now.AddDays(-1),
-                RentEndDateTime = DateTime.Now.AddDays(1),
+                RentStartDateTime = new DateTime(2025, 3, 5),
+                RentEndDateTime = new DateTime(2025, 3, 10),
                 RentStatus = RentalStatus.Rented
             }
             );
