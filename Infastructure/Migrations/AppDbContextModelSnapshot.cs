@@ -40,12 +40,12 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            BrandId = new Guid("3593d41d-ad87-467b-a2fc-deefe77099df"),
+                            BrandId = new Guid("11111111-1111-1111-1111-111111111111"),
                             BrandName = "Audi"
                         },
                         new
                         {
-                            BrandId = new Guid("29b563dd-51ca-41a9-b70a-c116d1a49236"),
+                            BrandId = new Guid("22222222-2222-2222-2222-222222222222"),
                             BrandName = "BMW"
                         });
                 });
@@ -66,6 +66,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<decimal>("DailyPrice")
                         .HasMaxLength(50)
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Description")
@@ -86,8 +87,8 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            CarId = new Guid("b6bec2ed-6387-4c2d-97df-8dd2d79d0e99"),
-                            BrandId = new Guid("3593d41d-ad87-467b-a2fc-deefe77099df"),
+                            CarId = new Guid("33333333-3333-3333-3333-333333333333"),
+                            BrandId = new Guid("11111111-1111-1111-1111-111111111111"),
                             CarName = "A5 45 TFSI",
                             DailyPrice = 25.00m,
                             Description = "Good Family Sport Car",
@@ -95,8 +96,8 @@ namespace Infrastructure.Migrations
                         },
                         new
                         {
-                            CarId = new Guid("17d6d4c8-afc8-4689-bea6-671860186dd5"),
-                            BrandId = new Guid("29b563dd-51ca-41a9-b70a-c116d1a49236"),
+                            CarId = new Guid("44444444-4444-4444-4444-444444444444"),
+                            BrandId = new Guid("22222222-2222-2222-2222-222222222222"),
                             CarName = "320i",
                             DailyPrice = 20.00m,
                             Description = "Good sport car for young",
@@ -142,28 +143,28 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            CardId = new Guid("91c79146-4247-482b-9c6c-224dee8035e3"),
+                            CardId = new Guid("77777777-7777-7777-7777-777777777777"),
                             CardNumber = "1234123412341234",
                             CardUser = "Erim",
-                            CustomerId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            CustomerId = new Guid("55555555-5555-5555-5555-555555555555"),
                             Cvv = "123",
                             ValidDate = "12/25"
                         },
                         new
                         {
-                            CardId = new Guid("b820905a-f5d4-4ec0-873c-e0f66fdeac8d"),
+                            CardId = new Guid("88888888-8888-8888-8888-888888888888"),
                             CardNumber = "1111111111111111",
                             CardUser = "Erim",
-                            CustomerId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            CustomerId = new Guid("55555555-5555-5555-5555-555555555555"),
                             Cvv = "124",
                             ValidDate = "12/25"
                         },
                         new
                         {
-                            CardId = new Guid("cf55599f-d880-4723-ab05-fe2948086c62"),
+                            CardId = new Guid("99999999-9999-9999-9999-999999999999"),
                             CardNumber = "4321432143214321",
                             CardUser = "Mert",
-                            CustomerId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            CustomerId = new Guid("66666666-6666-6666-6666-666666666666"),
                             Cvv = "321",
                             ValidDate = "11/25"
                         });
@@ -192,13 +193,13 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            CustomerId = new Guid("cc358324-5c06-4409-ac02-d4fb3017735d"),
+                            CustomerId = new Guid("55555555-5555-5555-5555-555555555555"),
                             CustomerEmail = "skjdfldskfj@gmail.com",
                             CustomerName = "Erim"
                         },
                         new
                         {
-                            CustomerId = new Guid("9cafddf3-8cde-400f-b9f3-7bdcf76f6198"),
+                            CustomerId = new Guid("66666666-6666-6666-6666-666666666666"),
                             CustomerEmail = "akdjasdajkdsaj@gmail.com",
                             CustomerName = "Mert"
                         });
@@ -236,11 +237,11 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            RentId = new Guid("e591e122-9a1f-4680-8154-c1f68c4a563b"),
-                            CarId = new Guid("b6bec2ed-6387-4c2d-97df-8dd2d79d0e99"),
-                            CustomerId = new Guid("cc358324-5c06-4409-ac02-d4fb3017735d"),
-                            RentEndDateTime = new DateTime(2025, 3, 6, 11, 7, 2, 702, DateTimeKind.Local).AddTicks(6313),
-                            RentStartDateTime = new DateTime(2025, 3, 4, 11, 7, 2, 701, DateTimeKind.Local).AddTicks(4082),
+                            RentId = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"),
+                            CarId = new Guid("33333333-3333-3333-3333-333333333333"),
+                            CustomerId = new Guid("55555555-5555-5555-5555-555555555555"),
+                            RentEndDateTime = new DateTime(2025, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RentStartDateTime = new DateTime(2025, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             RentStatus = 1
                         });
                 });

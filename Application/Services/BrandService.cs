@@ -19,10 +19,14 @@ public class BrandService:IBrandService
     private readonly IEventHandler<BrandUpdated> _brandUpdated;
 
     public BrandService(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
         IEventHandler<BrandCreated> brandCreated,
         IEventHandler<BrandDeleted> brandDeleted,
         IEventHandler<BrandUpdated> brandUpdated)
     {
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
         _brandCreated = brandCreated;
         _brandDeleted = brandDeleted;
         _brandUpdated = brandUpdated;

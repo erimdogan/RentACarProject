@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDB : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,7 +46,7 @@ namespace Infrastructure.Migrations
                     BrandId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CarName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     ModelYear = table.Column<int>(type: "int", maxLength: 50, nullable: false),
-                    DailyPrice = table.Column<decimal>(type: "decimal(18,2)", maxLength: 50, nullable: false),
+                    DailyPrice = table.Column<decimal>(type: "decimal(18,2)", maxLength: 50, precision: 18, scale: 2, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false)
                 },
                 constraints: table =>
@@ -115,18 +115,8 @@ namespace Infrastructure.Migrations
                 columns: new[] { "BrandId", "BrandName" },
                 values: new object[,]
                 {
-                    { new Guid("29b563dd-51ca-41a9-b70a-c116d1a49236"), "BMW" },
-                    { new Guid("3593d41d-ad87-467b-a2fc-deefe77099df"), "Audi" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "CreditCards",
-                columns: new[] { "CardId", "CardNumber", "CardUser", "CustomerId", "Cvv", "ValidDate" },
-                values: new object[,]
-                {
-                    { new Guid("91c79146-4247-482b-9c6c-224dee8035e3"), "1234123412341234", "Erim", new Guid("00000000-0000-0000-0000-000000000000"), "123", "12/25" },
-                    { new Guid("b820905a-f5d4-4ec0-873c-e0f66fdeac8d"), "1111111111111111", "Erim", new Guid("00000000-0000-0000-0000-000000000000"), "124", "12/25" },
-                    { new Guid("cf55599f-d880-4723-ab05-fe2948086c62"), "4321432143214321", "Mert", new Guid("00000000-0000-0000-0000-000000000000"), "321", "11/25" }
+                    { new Guid("11111111-1111-1111-1111-111111111111"), "Audi" },
+                    { new Guid("22222222-2222-2222-2222-222222222222"), "BMW" }
                 });
 
             migrationBuilder.InsertData(
@@ -134,8 +124,8 @@ namespace Infrastructure.Migrations
                 columns: new[] { "CustomerId", "CustomerEmail", "CustomerName" },
                 values: new object[,]
                 {
-                    { new Guid("9cafddf3-8cde-400f-b9f3-7bdcf76f6198"), "akdjasdajkdsaj@gmail.com", "Mert" },
-                    { new Guid("cc358324-5c06-4409-ac02-d4fb3017735d"), "skjdfldskfj@gmail.com", "Erim" }
+                    { new Guid("55555555-5555-5555-5555-555555555555"), "skjdfldskfj@gmail.com", "Erim" },
+                    { new Guid("66666666-6666-6666-6666-666666666666"), "akdjasdajkdsaj@gmail.com", "Mert" }
                 });
 
             migrationBuilder.InsertData(
@@ -143,14 +133,24 @@ namespace Infrastructure.Migrations
                 columns: new[] { "CarId", "BrandId", "CarName", "DailyPrice", "Description", "ModelYear" },
                 values: new object[,]
                 {
-                    { new Guid("17d6d4c8-afc8-4689-bea6-671860186dd5"), new Guid("29b563dd-51ca-41a9-b70a-c116d1a49236"), "320i", 20.00m, "Good sport car for young", 2022 },
-                    { new Guid("b6bec2ed-6387-4c2d-97df-8dd2d79d0e99"), new Guid("3593d41d-ad87-467b-a2fc-deefe77099df"), "A5 45 TFSI", 25.00m, "Good Family Sport Car", 2024 }
+                    { new Guid("33333333-3333-3333-3333-333333333333"), new Guid("11111111-1111-1111-1111-111111111111"), "A5 45 TFSI", 25.00m, "Good Family Sport Car", 2024 },
+                    { new Guid("44444444-4444-4444-4444-444444444444"), new Guid("22222222-2222-2222-2222-222222222222"), "320i", 20.00m, "Good sport car for young", 2022 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CreditCards",
+                columns: new[] { "CardId", "CardNumber", "CardUser", "CustomerId", "Cvv", "ValidDate" },
+                values: new object[,]
+                {
+                    { new Guid("77777777-7777-7777-7777-777777777777"), "1234123412341234", "Erim", new Guid("55555555-5555-5555-5555-555555555555"), "123", "12/25" },
+                    { new Guid("88888888-8888-8888-8888-888888888888"), "1111111111111111", "Erim", new Guid("55555555-5555-5555-5555-555555555555"), "124", "12/25" },
+                    { new Guid("99999999-9999-9999-9999-999999999999"), "4321432143214321", "Mert", new Guid("66666666-6666-6666-6666-666666666666"), "321", "11/25" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Rentals",
                 columns: new[] { "RentId", "CarId", "CustomerId", "RentEndDateTime", "RentStartDateTime", "RentStatus" },
-                values: new object[] { new Guid("e591e122-9a1f-4680-8154-c1f68c4a563b"), new Guid("b6bec2ed-6387-4c2d-97df-8dd2d79d0e99"), new Guid("cc358324-5c06-4409-ac02-d4fb3017735d"), new DateTime(2025, 3, 6, 11, 7, 2, 702, DateTimeKind.Local).AddTicks(6313), new DateTime(2025, 3, 4, 11, 7, 2, 701, DateTimeKind.Local).AddTicks(4082), 1 });
+                values: new object[] { new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"), new Guid("33333333-3333-3333-3333-333333333333"), new Guid("55555555-5555-5555-5555-555555555555"), new DateTime(2025, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cars_BrandId",

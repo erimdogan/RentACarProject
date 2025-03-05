@@ -46,6 +46,9 @@ public class AppDbContext:DbContext,IAppDbContext
             .HasForeignKey(cr=>cr.BrandId)
             .OnDelete(DeleteBehavior.Restrict);
 
+        modelBuilder.Entity<Car>()
+            .Property(c => c.DailyPrice)
+            .HasPrecision(18, 2);
 
         var brandId1 = new Guid("11111111-1111-1111-1111-111111111111");
         var brandId2 = new Guid("22222222-2222-2222-2222-222222222222");
@@ -107,6 +110,7 @@ public class AppDbContext:DbContext,IAppDbContext
             new CreditCard()
             {
                 CardId = creditCardId1,
+                CustomerId = customerId1,
                 CardNumber = "1234123412341234",
                 CardUser = "Erim",
                 ValidDate = "12/25",
@@ -115,6 +119,7 @@ public class AppDbContext:DbContext,IAppDbContext
             new CreditCard()
             {
                 CardId = creditCardId2,
+                CustomerId = customerId1,
                 CardNumber = "1111111111111111",
                 CardUser = "Erim",
                 ValidDate = "12/25",
@@ -123,6 +128,7 @@ public class AppDbContext:DbContext,IAppDbContext
             new CreditCard()
             {
                 CardId = creditCardId3,
+                CustomerId = customerId2,
                 CardNumber = "4321432143214321",
                 CardUser = "Mert",
                 ValidDate = "11/25",

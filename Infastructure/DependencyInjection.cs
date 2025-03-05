@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application;
+using Application.Interfaces;
 using Application.Services;
 using Application.Services.EventHandlers.Brand;
 using Application.Services.EventHandlers.CreditCard;
@@ -47,6 +48,8 @@ public static class DependencyInjection
         services.AddScoped<IEventHandler<CarCreated>>(provider => provider.GetRequiredService<CarEventHandler>());
         services.AddScoped<IEventHandler<CarUpdated>>(provider => provider.GetRequiredService<CarEventHandler>());
         services.AddScoped<IEventHandler<CarDeleted>>(provider => provider.GetRequiredService<CarEventHandler>());
+
+        services.AddAutoMapper(typeof(MappingProfile));
         return services;
     }
 }
