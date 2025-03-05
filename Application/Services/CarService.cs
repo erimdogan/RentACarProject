@@ -18,11 +18,13 @@ public class CarService:ICarService
 
     public CarService(
             IUnitOfWork unitOfWork,
+            IMapper mapper,
             IEventHandler<CarCreated> carCreatedEventHandler,
             IEventHandler<CarUpdated> carUpdatedEventHandler,
             IEventHandler<CarDeleted> carDeletedEventHandler)
     {
         _unitOfWork = unitOfWork;
+        _mapper = mapper;
         _carCreatedEventHandler = carCreatedEventHandler;
         _carUpdatedEventHandler = carUpdatedEventHandler;
         _carDeletedEventHandler = carDeletedEventHandler;

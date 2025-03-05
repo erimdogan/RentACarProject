@@ -61,6 +61,7 @@ public class BrandService:IBrandService
         //_unitOfWork.commit();
         var brand = _mapper.Map<Brand>(brandDTO);
         await _unitOfWork.Brands.AddBrandAsync(brand);
+        await _unitOfWork.SaveChangesAsync();
 
         var createEvent = new BrandCreated(brand);
         _brandCreated.Handle(createEvent);

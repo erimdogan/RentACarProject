@@ -12,9 +12,14 @@ public class RentalService:IRentalService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public RentalService(IRentalRepository rentalRepository)
+    public RentalService(
+        IRentalRepository rentalRepository, 
+        IUnitOfWork unitOfWork,
+        IMapper mapper)
     {
         _rentalRepository = rentalRepository;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
     }
 
     public async Task<IEnumerable<RentalDTO>> GetAllRentalsAsync()

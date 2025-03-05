@@ -21,12 +21,14 @@ public class CreditCardService:ICreditCardService
     public CreditCardService(
         ICreditCardRepository creditCardRepository,
         IUnitOfWork unitOfWork,
+        IMapper mapper,
         IEventHandler<CreditCardCreated> createdEventHandler,
         IEventHandler<CreditCardUpdated> updatedEventHandler,
         IEventHandler<CreditCardDeleted> deletedEventHandler)
     {
         _creditCardRepository = creditCardRepository;
         _unitOfWork = unitOfWork;
+        _mapper = mapper;
         _createdEventHandler = createdEventHandler;
         _updatedEventHandler = updatedEventHandler;
         _deletedEventHandler = deletedEventHandler;

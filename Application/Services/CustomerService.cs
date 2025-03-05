@@ -11,6 +11,12 @@ public class CustomerService:ICustomerService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
+    public CustomerService(IUnitOfWork unitOfWork, IMapper mapper)
+    {
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
+
     public async Task<CustomerDTO?> GetCustomerByIdAsync(Guid customerId)
     {
         var toMapped = await _unitOfWork.Customers.GetCustomerByIdAsync(customerId);
